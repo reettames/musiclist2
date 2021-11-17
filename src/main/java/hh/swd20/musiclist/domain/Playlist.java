@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Playlist {
@@ -16,6 +17,7 @@ public class Playlist {
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
 		private Long playlistid;
+		@NotNull(message= "Name can not be null")
 		private String name;
 		
 		@ManyToMany(mappedBy = "lists",  cascade = { CascadeType.ALL })
